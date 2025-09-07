@@ -7,30 +7,32 @@ export function AIUsageMeter() {
   const limit = 100
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-lg flex items-center gap-2">
-          <Brain className="w-5 h-5 text-primary" />
+    <Card className="flex flex-col">
+      <CardHeader className="pb-2 flex-shrink-0">
+        <CardTitle className="text-sm font-medium flex items-center gap-2">
+          <Brain className="w-4 h-4 text-primary" />
           AI Usage
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="pt-0 flex-1 flex flex-col justify-between">
         <div className="space-y-2">
-          <div className="flex justify-between text-sm">
-            <span>Requests Used</span>
-            <span className="text-muted-foreground">
-              {usage}/{limit}
-            </span>
+          <div className="space-y-1">
+            <div className="flex justify-between text-xs">
+              <span>Requests Used</span>
+              <span className="text-muted-foreground">
+                {usage}/{limit}
+              </span>
+            </div>
+            <div className="w-full bg-muted rounded-full h-1">
+              <div className="h-1 rounded-full bg-primary" style={{ width: `${(usage / limit) * 100}%` }} />
+            </div>
           </div>
-          <div className="w-full bg-muted rounded-full h-2">
-            <div className="h-2 rounded-full bg-primary" style={{ width: `${(usage / limit) * 100}%` }} />
-          </div>
+
+          <div className="text-center text-xs text-muted-foreground">{limit - usage} requests remaining this month</div>
         </div>
 
-        <div className="text-center text-sm text-muted-foreground">{limit - usage} requests remaining this month</div>
-
-        <Button variant="outline" size="sm" className="w-full bg-transparent">
-          <Zap className="w-4 h-4 mr-2" />
+        <Button variant="outline" size="sm" className="w-full bg-transparent text-xs h-6 mt-2">
+          <Zap className="w-3 h-3 mr-1" />
           Upgrade for More
         </Button>
       </CardContent>

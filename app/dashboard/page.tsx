@@ -18,29 +18,41 @@ export default function DashboardPage() {
           {/* Profile and Health Overview */}
           <div className="lg:col-span-1 space-y-6">
             <ProfileCard />
-            <HealthRingsWidget />
           </div>
 
           {/* Progress and Sessions */}
           <div className="lg:col-span-1 space-y-6">
             <ProgressMetricsCard />
-            <UpcomingSessionCard />
           </div>
 
-          {/* Supplements and Streaks */}
+          {/* Supplements */}
           <div className="lg:col-span-1 space-y-6">
             <SupplementTodayCard />
-            <StreakCard />
+            <UpcomingSessionCard />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <RankLevelCard />
-          <AIUsageMeter />
-          <QuickActionsGrid />
+        <div className="relative">
+          <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
+            <div className="flex-none w-[280px] snap-start">
+              <HealthRingsWidget />
+            </div>
+            <div className="flex-none w-[280px] snap-start">
+              <StreakCard />
+            </div>
+            <div className="flex-none w-[280px] snap-start">
+              <RankLevelCard />
+            </div>
+            <div className="flex-none w-[280px] snap-start">
+              <AIUsageMeter />
+            </div>
+          </div>
         </div>
 
-        <RecentActivityFeed />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <QuickActionsGrid />
+          <RecentActivityFeed />
+        </div>
       </div>
     </DashboardLayout>
   )

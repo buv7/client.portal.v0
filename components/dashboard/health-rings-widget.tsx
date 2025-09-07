@@ -8,28 +8,25 @@ export function HealthRingsWidget() {
   ]
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-lg">Health Rings</CardTitle>
+    <Card className="flex flex-col">
+      <CardHeader className="pb-2 flex-shrink-0">
+        <CardTitle className="text-sm font-medium">Health Rings</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
+      <CardContent className="pt-0 flex-1 flex flex-col justify-center">
+        <div className="space-y-2">
           {rings.map((ring) => (
-            <div key={ring.label} className="space-y-2">
-              <div className="flex justify-between text-sm">
+            <div key={ring.label} className="space-y-1">
+              <div className="flex justify-between text-xs">
                 <span>{ring.label}</span>
                 <span className="text-muted-foreground">
                   {ring.value}/{ring.max}
                 </span>
               </div>
-              <div className="w-full bg-muted rounded-full h-2">
+              <div className="w-full bg-muted rounded-full h-1">
                 <div
-                  className={`h-2 rounded-full bg-current ${ring.color}`}
+                  className={`h-1 rounded-full bg-current ${ring.color}`}
                   style={{ width: `${(ring.value / ring.max) * 100}%` }}
                 />
-              </div>
-              <div className="text-right text-xs text-muted-foreground">
-                {Math.round((ring.value / ring.max) * 100)}%
               </div>
             </div>
           ))}
