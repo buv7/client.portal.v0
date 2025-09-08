@@ -65,6 +65,7 @@ export function SideMenu({ isOpen, onClose }: SideMenuProps) {
   const learningItems = [
     { icon: GraduationCap, label: "Master VAGUS", href: "/learning" },
     { icon: Star, label: "Apply to become a Coach", href: "/become-coach" },
+    { icon: User, label: "Coach Portal", href: "/coach/auth/login" },
     { icon: HelpCircle, label: "Support", href: "/support" },
   ]
 
